@@ -30,12 +30,12 @@ public class Date {
 	 */
 	public Date( int newYear, int newMonth, int newDay, int newHour, int newMinute, int newSecond ) {
 		
-		this.setYear(newYear);
-		this.setMonth(newMonth);
-		this.setDay(newDay);
-		this.setHour(newHour);
-		this.setMinute(newMinute);
-		this.setSecond(newSecond);
+		this.setYear( newYear );
+		this.setMonth( newMonth );
+		this.setDay( newDay );
+		this.setHour( newHour );
+		this.setMinute( newMinute );
+		this.setSecond( newSecond );
 	}
 	
 	/**
@@ -46,9 +46,9 @@ public class Date {
 	 */
 	public Date( int newYear, int newMonth, int newDay ) {
 		
-		this.setYear(newYear);
-		this.setMonth(newMonth);
-		this.setDay(newDay);
+		this.setYear( newYear );
+		this.setMonth( newMonth );
+		this.setDay( newDay );
 	}
 
 	/**
