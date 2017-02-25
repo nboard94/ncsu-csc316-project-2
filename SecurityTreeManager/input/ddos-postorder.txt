@@ -1,4 +1,4 @@
-O 0.5 6 5000 "Rent" Existing BOTNET
+﻿O 0.5 6 5000 "Rent" Existing BOTNET
 A 0.5 3 2000 Find Vulnerable Computers
 A 0.4 4 5000 Infect Computer with BOT
 A 0.6 4 1000 Remain Undetected

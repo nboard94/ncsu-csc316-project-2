@@ -1,4 +1,4 @@
-9-13-2015 2:58:49,user2,save patient list
+﻿9-13-2015 2:58:49,user2,save patient list
 12-18-2012 16:25:58,user18,view diagnoses
 7-19-2013 22:49:10,user1,edit email reminders
 7-10-2015 0:26:58,user15,add patient representative list

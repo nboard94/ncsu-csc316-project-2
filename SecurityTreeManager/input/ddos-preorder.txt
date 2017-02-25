@@ -1,4 +1,4 @@
-GOAL Use DDoS Attack to Disrupt All Users
+﻿GOAL Use DDoS Attack to Disrupt All Users
 O Attack Servers
 O Direct BOTNET against key Servers
 O 0.5 6 5000 "Rent" Existing BOTNET
