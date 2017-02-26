@@ -14,6 +14,8 @@ public class LogEntry {
 	/** The log entry's corresponding action. */
 	String action;
 	
+	//TODO Need to make use of date objects
+	
 	/**
 	 * @param newTimeStampString Represents the information for setting the timeStamp of the new LogEntry.
 	 * @param newUsername The username of the new LogEntry.
