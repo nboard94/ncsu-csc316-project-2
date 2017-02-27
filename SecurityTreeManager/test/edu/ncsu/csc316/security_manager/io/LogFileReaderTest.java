@@ -34,5 +34,10 @@ public class LogFileReaderTest {
 		} catch (RuntimeException e) {
 			assertEquals(20, data.size());
 		}
+		
+		LogEntry testLog = data.get(19);
+		assertEquals("6-16-2013 24:28:33", testLog.getTimeStamp());
+		assertEquals("user3", testLog.getUsername());
+		assertEquals("add appointment requests", testLog.getAction());
 	}
 }

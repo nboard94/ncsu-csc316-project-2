@@ -26,14 +26,15 @@ public class AttackStep {
 	 */
 	public AttackStep( String newRelation, String newDescription ) {
 		
-		if( newRelation.equals( "GOAL" ) ) {
-			this.setType( AttackType.ATTACKGOAL );
-		}
-		else if( newRelation.equals( "A" ) ) {
+		
+		if( newRelation.equals( "A" ) ) {
 			this.setType( AttackType.SUBGOAL_AND );
 		}
 		else if( newRelation.equals( "O" ) ) {
 			this.setType( AttackType.SUBGOAL_OR );
+		}
+		else {
+			this.setType( AttackType.ATTACKGOAL );
 		}
 		
 		this.setDescription( newDescription );
