@@ -10,6 +10,9 @@ import org.junit.Test;
  */
 public class LogEntryTest {
 
+	/**
+	 * Tests the construction of a LogEntry object.
+	 */
 	@Test
 	public void testLogEntry() {
 		

@@ -10,6 +10,9 @@ import org.junit.Test;
  */
 public class AttackStepTest {
 
+	/**
+	 * Tests the construction of a head node.
+	 */
 	@Test
 	public void attackGoalTest() {
 		
@@ -19,6 +22,9 @@ public class AttackStepTest {
 		assertEquals( "Finish the project with a good grade.", attackGoal.getDescription() );
 	}
 	
+	/**
+	 * Tests the construction of a sub node, both AND and OR types.
+	 */
 	@Test
 	public void subGoalTest() {
 		
@@ -34,6 +40,9 @@ public class AttackStepTest {
 		assertEquals( "Or this thing.", orSubGoal.getDescription() );
 	}
 	
+	/**
+	 * Test the construction of a leaf node, both AND and OR types.
+	 */
 	@Test
 	public void leafTest() {
 		

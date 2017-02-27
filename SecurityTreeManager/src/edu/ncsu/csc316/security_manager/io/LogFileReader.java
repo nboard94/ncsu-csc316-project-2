@@ -40,9 +40,9 @@ public class LogFileReader {
 			currentLog = new LogEntry( "", "", "" );
 			currentLine = scan.nextLine();
 			currentData = currentLine.split(",");
-			currentData[0].trim();
-			currentData[1].trim();
-			currentData[2].trim();
+			currentData[0] = currentData[0].trim();
+			currentData[1] = currentData[1].trim();
+			currentData[2] = currentData[2].trim();
 			
 			currentLog = new LogEntry(	currentData[0],
 										currentData[1],

@@ -1,5 +1,11 @@
 package edu.ncsu.csc316.security_manager.manager;
 
+/**
+ * Provides the operations that the user can choose from.
+ * Manages retrieval from the trees, and allows the user
+ * to build a tree given data files.
+ * @author Nicholas Board (ndboard)
+ */
 public class SecurityTreeManager {
 
 	 /**

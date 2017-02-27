@@ -8,12 +8,20 @@ import edu.ncsu.csc316.security_manager.attack.AttackStep;
 import edu.ncsu.csc316.security_manager.attack.AttackType;
 import edu.ncsu.csc316.security_manager.list.ArrayBasedList;
 
+/**
+ * Tests the  construction and functionalit of the
+ * AttackFileReader class.
+ * @author Nicholas Board (ndboard)
+ */
 public class AttackFileReaderTest {
 
 	/** Filepaths of the testing attack file. */
 	String attackfilePre = "input/ddos-preorder.txt";
 	String attackfilePost = "input/ddos-postorder.txt";
 	
+	/**
+	 * Tests the AttackFileReader given a preorder data file.
+	 */
 	@Test
 	public void testAttackFileReaderPre() {
 		

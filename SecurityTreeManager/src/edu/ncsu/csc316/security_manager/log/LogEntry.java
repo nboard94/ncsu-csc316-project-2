@@ -17,6 +17,7 @@ public class LogEntry {
 	//TODO Need to make use of date objects
 	
 	/**
+	 * Constructor for a LogEntry object.
 	 * @param newTimeStampString Represents the information for setting the timeStamp of the new LogEntry.
 	 * @param newUsername The username of the new LogEntry.
 	 * @param newAction The action of the new LogEntry.
