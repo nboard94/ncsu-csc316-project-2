@@ -81,7 +81,7 @@ public class ArrayBasedListTest {
 		list.add(log2);
 		
 		assertEquals(log1, list.get(0));
-		assertEquals(log2, list.get(1));
+		assertEquals(log2, list.get(1)); 
 		
 		list.swap(0, 1);
 		
