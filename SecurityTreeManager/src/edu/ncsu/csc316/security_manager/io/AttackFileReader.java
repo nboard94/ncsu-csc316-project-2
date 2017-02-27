@@ -34,7 +34,7 @@ public class AttackFileReader {
 		StringBuilder sb = new StringBuilder();
 		
 		try {
-			scan = new Scanner(file);
+			scan = new Scanner(file, "UTF8");
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException();
 		}
@@ -46,11 +46,17 @@ public class AttackFileReader {
 			currentData = currentLine.split(" ");
 			sb.delete(0, sb.length());
 			
-			currentRelation = currentData[0];
+			currentRelation = currentData[0].trim();
+			if(currentRelation.length() != 4 && currentRelation.contains("A")) {
+				currentRelation = "A";
+			}
+			else if(currentRelation.length() != 4 && currentRelation.contains("O")) {
+				currentRelation = "O";
+			}
+				
+			
+			
 			try {
-				
-				Double.valueOf(currentData[1]);
-				
 				currentProbability = Double.valueOf(currentData[1]);
 				currentImpact = Double.valueOf(currentData[2]);
 				currentCost = Double.valueOf(currentData[3]);

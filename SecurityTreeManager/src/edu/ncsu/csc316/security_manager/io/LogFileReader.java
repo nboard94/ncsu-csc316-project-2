@@ -29,7 +29,7 @@ public class LogFileReader {
 		File file = new File(filepath);
 		Scanner scan;
 		try {
-			scan = new Scanner(file);
+			scan = new Scanner(file, "UTF8");
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException();
 		}

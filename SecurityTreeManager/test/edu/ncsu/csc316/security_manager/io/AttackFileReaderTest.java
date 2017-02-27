@@ -22,30 +22,66 @@ public class AttackFileReaderTest {
 	/**
 	 * Tests the AttackFileReader given a preorder data file.
 	 */
+//	@Test
+//	public void testAttackFileReaderPre() {
+//		
+//		AttackFileReader preReader = new AttackFileReader(attackfilePre);
+//		
+//		ArrayBasedList<AttackStep> data = preReader.getData();
+//		
+//		assertEquals(15, data.size());
+//		
+//		try {
+//			preReader = new AttackFileReader("bologna");
+//			fail();
+//		} catch (RuntimeException e) {
+//			assertEquals(15, data.size());
+//			
+//			AttackStep testGoal = data.get(0);
+//			assertEquals(AttackType.ATTACKGOAL, testGoal.getType());
+//			assertEquals("Use DDoS Attack to Disrupt All Users", testGoal.getDescription());
+//			
+//			AttackStep testSub = data.get(1);
+//			assertEquals(AttackType.SUBGOAL_OR, testSub.getType());
+//			assertEquals("Attack Servers", testSub.getDescription());
+//			
+//			AttackStep testNode = data.get(3);
+//			assertEquals(AttackType.LEAF_OR, testNode.getType());
+//			assertEquals(0, (int)testNode.getProbability());
+//			assertEquals(6, (int)testNode.getImpact());
+//			assertEquals(5000, (int)testNode.getCost());
+//			assertEquals("\"Rent\" Existing BOTNET", testNode.getDescription());
+//			
+//		}
+//	}
+	
+	/**
+	 * Tests the AttackFileReader given a postorder data file.
+	 */
 	@Test
-	public void testAttackFileReaderPre() {
+	public void testAttackFileReaderPost() {
 		
-		AttackFileReader preReader = new AttackFileReader(attackfilePre);
+		AttackFileReader postReader = new AttackFileReader(attackfilePost);
 		
-		ArrayBasedList<AttackStep> data = preReader.getData();
+		ArrayBasedList<AttackStep> data = postReader.getData();
 		
 		assertEquals(15, data.size());
 		
 		try {
-			preReader = new AttackFileReader("bologna");
+			postReader = new AttackFileReader("bologna");
 			fail();
 		} catch (RuntimeException e) {
 			assertEquals(15, data.size());
 			
-			AttackStep testGoal = data.get(0);
+			AttackStep testGoal = data.get(14);
 			assertEquals(AttackType.ATTACKGOAL, testGoal.getType());
 			assertEquals("Use DDoS Attack to Disrupt All Users", testGoal.getDescription());
 			
-			AttackStep testSub = data.get(1);
+			AttackStep testSub = data.get(7);
 			assertEquals(AttackType.SUBGOAL_OR, testSub.getType());
 			assertEquals("Attack Servers", testSub.getDescription());
 			
-			AttackStep testNode = data.get(3);
+			AttackStep testNode = data.get(0);
 			assertEquals(AttackType.LEAF_OR, testNode.getType());
 			assertEquals(0, (int)testNode.getProbability());
 			assertEquals(6, (int)testNode.getImpact());
