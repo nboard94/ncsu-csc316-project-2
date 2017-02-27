@@ -11,10 +11,11 @@ import edu.ncsu.csc316.security_manager.manager.SecurityTreeManager;
  */
 public class SecurityTreeManagerUI {
 
+	//TODO take out the filepaths here, only for testing
 	private SecurityTreeManager manager;
-	private String attackFilePre;
-	private String attackFilePost;
-	private String logfile;
+	private String attackFilePre = "input/ddos-preorder.txt";
+	private String attackFilePost = "input/ddos-postorder.txt";
+	private String logfile = "input/sample-log.txt";
 	private String command = "";
 	
 	/**
@@ -45,10 +46,12 @@ public class SecurityTreeManagerUI {
 				System.exit(0);
 			}
 			else if(commandLine.command.equals("a")) {
+				
+				//TODO uncomment these later
 				System.out.println("Enter pre-order traversal file: ");
-				commandLine.attackFilePre = commandScan.nextLine();
+				//commandLine.attackFilePre = commandScan.nextLine();
 				System.out.println("Enter post-order traversal file: ");
-				commandLine.attackFilePost = commandScan.nextLine();
+				//commandLine.attackFilePost = commandScan.nextLine();
 				
 				if(commandLine.attackFilePost == null || commandLine.attackFilePre == null) {
 					System.out.println("Please enter a valid filepath.");
@@ -60,7 +63,7 @@ public class SecurityTreeManagerUI {
 			else if(commandLine.command.equals("l")) {
 				
 				System.out.println("Enter unsorted log file: ");
-				commandLine.logfile = commandScan.nextLine();
+				//commandLine.logfile = commandScan.nextLine();
 				
 				if(commandLine.logfile == null) {
 					System.out.println("Please enter a valid filepath.");
