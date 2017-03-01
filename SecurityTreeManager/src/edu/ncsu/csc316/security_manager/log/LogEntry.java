@@ -79,4 +79,21 @@ public class LogEntry {
 	private void setAction(String action) {
 		this.action = action;
 	}
+	
+	/**
+	 * Creates a specifically formatted String for the LogEntry.
+	 * @return ls.toString() the formatted String.
+	 */
+	public String logString() {
+		
+		StringBuilder ls = new StringBuilder();
+		
+		ls.append( "LogEntry[timestamp=" );
+		ls.append( this.getTimeStamp().getYear() + "/" + this.getTimeStamp().getMonth() + "/" + this.getTimeStamp().getDay() + " " );
+		ls.append( this.getTimeStamp().getHour() + ":" + this.getTimeStamp().getMinute() + ":" + this.getTimeStamp().getSecond() );
+		ls.append( ", user=" + this.getUsername() );
+		ls.append( ", description=" + this.getAction() + "]" );
+		
+		return ls.toString();
+	}
 }
