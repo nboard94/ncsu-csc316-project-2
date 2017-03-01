@@ -28,6 +28,9 @@ public class DateTest {
 		assertEquals( "11-29-1994 14:42:00", justDate.getString());
 	}
 	
+	/**
+	 * Test the compare method in Date.
+	 */
 	@Test
 	public void compareDateTest() {
 		

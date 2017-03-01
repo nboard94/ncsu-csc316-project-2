@@ -23,12 +23,7 @@ public class Date {
 	
 	/**
 	 * Constructor for a Date object that includes both date and time information.
-	 * @param newYear The year to set.
-	 * @param newMonth The month to set.
-	 * @param newDay The day to set.
-	 * @param newHour The hour to set.
-	 * @param newMinute The minute to set.
-	 * @param newSecond The second to set.
+	 * @param dateTimeString The string with the information to set the Date fields.
 	 */
  	public Date( String dateTimeString ) {
 		
@@ -177,7 +172,7 @@ public class Date {
 
 	/**
 	 * Setter method for the Date's string.
-	 * @param string the second to set
+	 * @param newString the string to set
 	 */
 	public void setString(String newString) {
 		this.toString = newString;
