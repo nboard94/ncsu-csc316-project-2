@@ -18,6 +18,8 @@ public class Date {
 	private int minute;
 	/** The date's corresponding second. */
 	private int second;
+	/** The string associated with the date. */
+	private String toString;
 	
 	/**
 	 * Constructor for a Date object that includes both date and time information.
@@ -28,29 +30,47 @@ public class Date {
 	 * @param newMinute The minute to set.
 	 * @param newSecond The second to set.
 	 */
-	public Date( int newYear, int newMonth, int newDay, int newHour, int newMinute, int newSecond ) {
+ 	public Date( String dateTimeString ) {
 		
-		this.setYear( newYear );
-		this.setMonth( newMonth );
-		this.setDay( newDay );
-		this.setHour( newHour );
-		this.setMinute( newMinute );
-		this.setSecond( newSecond );
+		
+		//9-13-2015 2:58:49
+		this.setString(dateTimeString);
+		
+		String dateString = dateTimeString.substring(0, dateTimeString.indexOf(' '));
+		String timeString = dateTimeString.substring(dateTimeString.indexOf(' ') + 1);
+		
+		String[] dateData = dateString.split("-");
+		String[] timeData = timeString.split(":");
+		
+		char current;
+		int startIdx = 0;
+		for( int i = 0; i < dateData[0].length(); i++ ) {
+			
+			current = dateData[0].charAt(i);
+			
+			if ( !Character.isDigit(current) ) {
+				
+				startIdx = dateData[0].indexOf(current) + 1;
+				dateData[0] = dateData[0].substring(startIdx); 
+			}
+		}
+		
+		int newMonth = Integer.valueOf( dateData[0].trim() );
+		int newDay = Integer.valueOf( dateData[1].trim() );
+		int newYear = Integer.valueOf( dateData[2].trim() );
+		int newHour = Integer.valueOf( timeData[0].trim() );
+		int newMinute = Integer.valueOf( timeData[1].trim() );
+		int newSecond = Integer.valueOf( timeData[2].trim() );
+		
+		this.setMonth( Integer.valueOf( newMonth ) );
+		this.setDay( Integer.valueOf( newDay ) );
+		this.setYear( Integer.valueOf( newYear ) );
+		
+		this.setHour( Integer.valueOf( newHour ) );
+		this.setMinute( Integer.valueOf( newMinute ) );
+		this.setSecond( Integer.valueOf( newSecond ) );
 	}
 	
-	/**
-	 * Constructor for a Date object that includes only date information.
-	 * @param newYear The year to set.
-	 * @param newMonth The month to set.
-	 * @param newDay The day to set.
-	 */
-	public Date( int newYear, int newMonth, int newDay ) {
-		
-		this.setYear( newYear );
-		this.setMonth( newMonth );
-		this.setDay( newDay );
-	}
-
 	/**
 	 * Getter method for the Date's year.
 	 * @return the year
@@ -145,5 +165,99 @@ public class Date {
 	 */
 	public void setSecond(int second) {
 		this.second = second;
+	}
+	
+	/**
+	 * Getter method for the Date's string.
+	 * @return the string
+	 */
+	public String getString() {
+		return toString;
+	}
+
+	/**
+	 * Setter method for the Date's string.
+	 * @param string the second to set
+	 */
+	public void setString(String newString) {
+		this.toString = newString;
+	}
+	
+
+	/**
+	 * @param otherDate The date to compare this one to.
+	 * @return -1 if this date comes first, 0 if they're the same, 1 if the other is first.
+	 */
+	public int compareDate(Date otherDate) {
+		
+		if( otherDate.getYear() < this.getYear() ) {
+			
+			return 1;
+		}
+		else if( this.getYear() < otherDate.getYear() ) {
+		
+			return -1;
+		}
+		else if( this.getYear() == otherDate.getYear() ) {
+			
+			if( otherDate.getMonth() < this.getMonth() ) {
+				
+				return 1;
+			}
+			else if( this.getMonth() < otherDate.getMonth() ) {
+			
+				return -1;
+			}
+			else if( this.getMonth() == otherDate.getMonth() ) {
+				
+				if( otherDate.getDay() < this.getDay() ) {
+					
+					return 1;
+				}
+				else if( this.getDay() < otherDate.getDay() ) {
+				
+					return -1;
+				}
+				else if( this.getDay() == otherDate.getDay() ) {
+					
+					if( otherDate.getHour() < this.getHour() ) {
+						
+						return 1;
+					}
+					else if( this.getHour() < otherDate.getHour() ) {
+					
+						return -1;
+					}
+					else if( this.getHour() == otherDate.getHour() ) {
+						
+						if( otherDate.getMinute() < this.getMinute() ) {
+							
+							return 1;
+						}
+						else if( this.getMinute() < otherDate.getMinute() ) {
+						
+							return -1;
+						}
+						else if( this.getMinute() == otherDate.getMinute() ) {
+							
+							if( otherDate.getSecond() < this.getSecond() ) {
+								
+								return 1;
+							}
+							else if( this.getSecond() < otherDate.getSecond() ) {
+							
+								return -1;
+							}
+							else if( this.getSecond() == otherDate.getSecond() ) {
+								
+								return 0;
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		return 0;
 	}
 }

@@ -36,7 +36,7 @@ public class LogFileReaderTest {
 		}
 		
 		LogEntry testLog = data.get(19);
-		assertEquals("6-16-2013 24:28:33", testLog.getTimeStamp());
+		assertEquals("6-16-2013 24:28:33", testLog.getTimeStamp().getString());
 		assertEquals("user3", testLog.getUsername());
 		assertEquals("add appointment requests", testLog.getAction());
 	}

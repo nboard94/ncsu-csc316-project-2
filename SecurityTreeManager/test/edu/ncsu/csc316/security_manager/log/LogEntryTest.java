@@ -18,7 +18,7 @@ public class LogEntryTest {
 		
 		LogEntry log = new LogEntry("02-25-2017 15:53:00" , "ndboard", "working hard on project");
 		
-		assertEquals( "02-25-2017 15:53:00", log.getTimeStamp() );	
+		assertEquals( "02-25-2017 15:53:00", log.getTimeStamp().getString() );	
 		assertEquals( "ndboard", log.getUsername() );
 		assertEquals( "working hard on project", log.getAction() );
 	}

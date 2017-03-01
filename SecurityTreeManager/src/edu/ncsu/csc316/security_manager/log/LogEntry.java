@@ -1,5 +1,7 @@
 package edu.ncsu.csc316.security_manager.log;
 
+import edu.ncsu.csc316.security_manager.date.Date;
+
 /**
  * This class represents the information contained in a
  * node of an log tree.
@@ -8,7 +10,7 @@ package edu.ncsu.csc316.security_manager.log;
 public class LogEntry {
 
 	/** The log entry's corresponding timeStamp. */
-	String timeStamp;
+	Date timeStamp;
 	/** The log entry's corresponding username. */
 	String username;
 	/** The log entry's corresponding action. */
@@ -24,7 +26,8 @@ public class LogEntry {
 	 */
 	public LogEntry( String newTimeStampString, String newUsername, String newAction ) {
 		
-		this.setTimeStamp( newTimeStampString );
+		Date newDate = new Date(newTimeStampString);
+		this.setTimeStamp( newDate );
 		this.setUsername( newUsername );
 		this.setAction( newAction );
 	}
@@ -33,7 +36,7 @@ public class LogEntry {
 	 * Getter method for the LogEntry's timeStamp.
 	 * @return the timeStamp.
 	 */
-	public String getTimeStamp() {
+	public Date getTimeStamp() {
 		return timeStamp;
 	}
 
@@ -41,7 +44,7 @@ public class LogEntry {
 	 * Setter method for the LogEntry's timeStamp.
 	 * @param timeStamp the timeStamp to set.
 	 */
-	private void setTimeStamp(String timeStamp) {
+	private void setTimeStamp(Date timeStamp) {
 		this.timeStamp = timeStamp;
 	}
 

@@ -17,7 +17,7 @@ public class DateTest {
 	@Test
 	public void dateAndTimeTest() {
 		
-		Date justDate = new Date( 1994, 11, 29, 14, 42, 0 );
+		Date justDate = new Date("11-29-1994 14:42:00");
 		
 		assertEquals( 1994, justDate.getYear() );
 		assertEquals( 11, justDate.getMonth() );
@@ -25,18 +25,68 @@ public class DateTest {
 		assertEquals( 14, justDate.getHour() );
 		assertEquals( 42, justDate.getMinute() );
 		assertEquals( 0, justDate.getSecond() );
+		assertEquals( "11-29-1994 14:42:00", justDate.getString());
 	}
 	
-	/**
-	 * Tests constructing and getting from a Date object that
-	 * contains only date information.
-	 */
 	@Test
-	public void justDateTest() {
-		Date dateTime = new Date( 2013, 8, 11 );
+	public void compareDateTest() {
 		
-		assertEquals( 2013, dateTime.getYear() );
-		assertEquals( 8, dateTime.getMonth() );
-		assertEquals( 11, dateTime.getDay() );
+		Date td;
+		Date od;
+		
+		//otherDate's year is first
+		td = new Date("11-29-1994 14:42:02");
+		od = new Date("11-29-1990 14:42:02");
+		assertEquals( 1, td.compareDate(od));
+		
+		//thisDate's year is first
+		td = new Date("11-29-1894 14:42:02");
+		assertEquals( -1, td.compareDate(od));
+		
+		//otherDate's month is first
+		od = new Date("08-29-1894 14:42:02");
+		assertEquals( 1, td.compareDate(od));
+		
+		//thisDate's month is first
+		td = new Date("01-29-1894 14:42:02");
+		assertEquals( -1, td.compareDate(od));
+		
+		//otherDate's day is first
+		od = new Date("01-14-1894 14:42:02");
+		assertEquals( 1, td.compareDate(od));
+		
+		//thisDate's day is first
+		td = new Date("01-02-1894 14:42:02");
+		assertEquals( -1, td.compareDate(od));
+		
+		//otherDate's hour is first
+		od = new Date("01-02-1894 03:42:02");
+		assertEquals( 1, td.compareDate(od));
+		
+		//thisDate's hour is first
+		td = new Date("01-02-1894 01:42:02");
+		assertEquals( -1, td.compareDate(od));
+		
+		//otherDate's minute is first
+		od = new Date("01-02-1894 01:12:02");
+		assertEquals( 1, td.compareDate(od));
+		
+		//thisDate's minute is first
+		td = new Date("01-02-1894 01:06:02");
+		assertEquals( -1, td.compareDate(od));
+		
+		//otherDate's second is first
+		od = new Date("01-02-1894 01:06:01");
+		assertEquals( 1, td.compareDate(od));
+				
+		//thisDate's second is first
+		td = new Date("01-02-1894 01:06:00");
+		assertEquals( -1, td.compareDate(od));
+		
+		//dates are the same
+		od = new Date("01-02-1894 01:06:00");
+		assertEquals( 0, td.compareDate(od));
+		assertEquals( 0, od.compareDate(td));
+
 	}
 }

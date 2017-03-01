@@ -37,7 +37,6 @@ public class LogFileReader {
 		LogEntry currentLog;
 		while(scan.hasNextLine()) {
 			
-			currentLog = new LogEntry( "", "", "" );
 			currentLine = scan.nextLine();
 			currentData = currentLine.split(",");
 			currentData[0] = currentData[0].trim();

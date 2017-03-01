@@ -27,7 +27,7 @@ public class ArrayBasedListTest {
 	@Before
 	public void testArrayBastList() {
 		smallList = new ArrayBasedList<Object>();
-		testLog = new LogEntry("testTime", "testName", "testState");
+		testLog = new LogEntry("11-29-1994 14:42:00", "testName", "testState");
 		testStep = new AttackStep("GOAL", "testDesc");
 		
 	}
@@ -74,8 +74,8 @@ public class ArrayBasedListTest {
 	public void swapTest() {
 		ArrayBasedList<LogEntry> list = new ArrayBasedList<LogEntry>();
 		
-		LogEntry log1 = new LogEntry("time1", "user1", "desk1");
-		LogEntry log2 = new LogEntry("time2", "user2", "desk2");
+		LogEntry log1 = new LogEntry("11-29-1994 14:42:00", "user1", "desk1");
+		LogEntry log2 = new LogEntry("11-29-1994 14:42:00", "user2", "desk2");
 		
 		list.add(log1);
 		list.add(log2);
