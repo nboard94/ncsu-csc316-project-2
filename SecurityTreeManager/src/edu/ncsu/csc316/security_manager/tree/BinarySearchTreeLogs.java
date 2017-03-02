@@ -7,18 +7,18 @@ import edu.ncsu.csc316.security_manager.log.LogEntry;
  * This is a Binary Search Tree algorithm
  * @author Nicholas Board (ndboard)
  */
-public class BinarySearchTree {
+public class BinarySearchTreeLogs {
 
 	private LogEntry data;
-	private BinarySearchTree leftSubTree;
-	private BinarySearchTree rightSubTree;
+	private BinarySearchTreeLogs leftSubTree;
+	private BinarySearchTreeLogs rightSubTree;
 	ArrayBasedList<LogEntry> logsInDate = new ArrayBasedList<LogEntry>();
 	
 	/**
 	 * Constructor for a BST with LogEntries.
 	 * @param newData The initial LogEntry.
 	 */
-	public BinarySearchTree(LogEntry newData) {
+	public BinarySearchTreeLogs(LogEntry newData) {
 		
 		this.data = newData;
 		this.leftSubTree = null;
@@ -39,7 +39,7 @@ public class BinarySearchTree {
 			}
 			else {
 				
-				this.leftSubTree = new BinarySearchTree( newData );
+				this.leftSubTree = new BinarySearchTreeLogs( newData );
 			}
 		}
 		else {
@@ -50,7 +50,7 @@ public class BinarySearchTree {
 			}
 			else {
 				
-				this.rightSubTree = new BinarySearchTree( newData );
+				this.rightSubTree = new BinarySearchTreeLogs( newData );
 			}
 		}
 		
@@ -62,7 +62,7 @@ public class BinarySearchTree {
 	 * Getter for the leftSubTree.
 	 * @return The subtree left relative to this node.
 	 */
-	public BinarySearchTree getLeftTree() {
+	public BinarySearchTreeLogs getLeftTree() {
 		
 		return this.leftSubTree;
 	}
@@ -71,7 +71,7 @@ public class BinarySearchTree {
 	 * Getter for the rightSubTree.
 	 * @return The subtree right relative to this node.
 	 */
-	public BinarySearchTree getRightTree() {
+	public BinarySearchTreeLogs getRightTree() {
 		
 		return this.rightSubTree;
 	}

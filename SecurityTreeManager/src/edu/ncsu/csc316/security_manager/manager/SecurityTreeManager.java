@@ -1,10 +1,9 @@
 package edu.ncsu.csc316.security_manager.manager;
 
-import edu.ncsu.csc316.security_manager.date.Date;
 import edu.ncsu.csc316.security_manager.io.LogFileReader;
 import edu.ncsu.csc316.security_manager.list.ArrayBasedList;
 import edu.ncsu.csc316.security_manager.log.LogEntry;
-import edu.ncsu.csc316.security_manager.tree.BinarySearchTree;
+import edu.ncsu.csc316.security_manager.tree.BinarySearchTreeLogs;
 
 /**
  * Provides the operations that the user can choose from.
@@ -14,7 +13,7 @@ import edu.ncsu.csc316.security_manager.tree.BinarySearchTree;
  */
 public class SecurityTreeManager {
 
-	private BinarySearchTree logTree;
+	private BinarySearchTreeLogs logTree;
 	
 	private ArrayBasedList<LogEntry> logData;
 	
