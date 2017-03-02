@@ -12,10 +12,11 @@ import edu.ncsu.csc316.security_manager.manager.SecurityTreeManager;
 public class SecurityTreeManagerUI {
 
 	//TODO take out the filepaths here, only for testing
-	private SecurityTreeManager manager;
+	private SecurityTreeManager attackManager;
+	private static SecurityTreeManager logManager;
 	private String attackFilePre = "input/ddos-preorder.txt";
 	private String attackFilePost = "input/ddos-postorder.txt";
-	private String logfile = "input/sample-log.txt";
+	private static String logfile = "input/sample-log.txt";
 	private String command = "";
 	
 	/**
@@ -69,7 +70,8 @@ public class SecurityTreeManagerUI {
 					System.out.println("Please enter a valid filepath.");
 				}
 				else {
-					//TODO function will call manager to sort log files
+					logManager = new SecurityTreeManager( logfile );
+					System.out.println( logManager.getLogEntriesForDate( "10-6-2014" ));
 				}
 			}
 			else {

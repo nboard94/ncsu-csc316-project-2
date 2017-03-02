@@ -1,5 +1,11 @@
 package edu.ncsu.csc316.security_manager.manager;
 
+import edu.ncsu.csc316.security_manager.date.Date;
+import edu.ncsu.csc316.security_manager.io.LogFileReader;
+import edu.ncsu.csc316.security_manager.list.ArrayBasedList;
+import edu.ncsu.csc316.security_manager.log.LogEntry;
+import edu.ncsu.csc316.security_manager.tree.BinarySearchTree;
+
 /**
  * Provides the operations that the user can choose from.
  * Manages retrieval from the trees, and allows the user
@@ -8,6 +14,10 @@ package edu.ncsu.csc316.security_manager.manager;
  */
 public class SecurityTreeManager {
 
+	private BinarySearchTree logTree;
+	
+	private ArrayBasedList<LogEntry> logData;
+	
 	 /**
      * Constructs a new SecurityTreeManager object with the given paths 
      * to the preOrder and postOrder traversal files.
@@ -26,8 +36,13 @@ public class SecurityTreeManager {
      */
     public SecurityTreeManager(String filePath)
     {
-        //TODO your code here
-    }
+       LogFileReader logRead = new LogFileReader( filePath );
+       logData = logRead.getData();
+       
+       for( int i = 0; i < logData.size(); i++) {
+    	   logTree.addNode( logData.get(i) );
+       }
+     }
     
     /**
      * Returns the level order traversal of the Attack Tree
@@ -93,8 +108,7 @@ public class SecurityTreeManager {
      */
     public String getLogEntriesForDate(String date)
     {
-        //TODO your code here
-    	return "";
+      return null;
     }
 	
 }
