@@ -21,49 +21,67 @@ public class Date {
 	/** The string associated with the date. */
 	private String toString;
 	
+	private String dateOnlyString;
+	
 	/**
 	 * Constructor for a Date object that includes both date and time information.
 	 * @param dateTimeString The string with the information to set the Date fields.
 	 */
  	public Date( String dateTimeString ) {
 		
-		
-		//9-13-2015 2:58:49
-		this.setString(dateTimeString);
-		
-		String dateString = dateTimeString.substring(0, dateTimeString.indexOf(' '));
-		String timeString = dateTimeString.substring(dateTimeString.indexOf(' ') + 1);
-		
-		String[] dateData = dateString.split("-");
-		String[] timeData = timeString.split(":");
-		
-		char current;
-		int startIdx = 0;
-		for( int i = 0; i < dateData[0].length(); i++ ) {
+		if (dateTimeString.length() > 10 ) {
+			//9-13-2015 2:58:49
+			this.setString(dateTimeString);
 			
-			current = dateData[0].charAt(i);
+			String dateString = dateTimeString.substring(0, dateTimeString.indexOf(' '));
+			String timeString = dateTimeString.substring(dateTimeString.indexOf(' ') + 1);
 			
-			if ( !Character.isDigit(current) ) {
+			dateOnlyString = dateString;
+			
+			String[] dateData = dateString.split("-");
+			String[] timeData = timeString.split(":");
+			
+			char current;
+			int startIdx = 0;
+			for( int i = 0; i < dateData[0].length(); i++ ) {
 				
-				startIdx = dateData[0].indexOf(current) + 1;
-				dateData[0] = dateData[0].substring(startIdx); 
+				current = dateData[0].charAt(i);
+				
+				if ( !Character.isDigit(current) ) {
+					
+					startIdx = dateData[0].indexOf(current) + 1;
+					dateData[0] = dateData[0].substring(startIdx); 
+				}
 			}
+			
+			int newMonth = Integer.valueOf( dateData[0].trim() );
+			int newDay = Integer.valueOf( dateData[1].trim() );
+			int newYear = Integer.valueOf( dateData[2].trim() );
+			int newHour = Integer.valueOf( timeData[0].trim() );
+			int newMinute = Integer.valueOf( timeData[1].trim() );
+			int newSecond = Integer.valueOf( timeData[2].trim() );
+			
+			this.setMonth( Integer.valueOf( newMonth ) );
+			this.setDay( Integer.valueOf( newDay ) );
+			this.setYear( Integer.valueOf( newYear ) );
+			
+			this.setHour( Integer.valueOf( newHour ) );
+			this.setMinute( Integer.valueOf( newMinute ) );
+			this.setSecond( Integer.valueOf( newSecond ) );
 		}
-		
-		int newMonth = Integer.valueOf( dateData[0].trim() );
-		int newDay = Integer.valueOf( dateData[1].trim() );
-		int newYear = Integer.valueOf( dateData[2].trim() );
-		int newHour = Integer.valueOf( timeData[0].trim() );
-		int newMinute = Integer.valueOf( timeData[1].trim() );
-		int newSecond = Integer.valueOf( timeData[2].trim() );
-		
-		this.setMonth( Integer.valueOf( newMonth ) );
-		this.setDay( Integer.valueOf( newDay ) );
-		this.setYear( Integer.valueOf( newYear ) );
-		
-		this.setHour( Integer.valueOf( newHour ) );
-		this.setMinute( Integer.valueOf( newMinute ) );
-		this.setSecond( Integer.valueOf( newSecond ) );
+		else {
+			String[] dateData = dateTimeString.split("-");
+			
+			dateOnlyString = dateTimeString;
+			
+			int newMonth = Integer.valueOf( dateData[0].trim() );
+			int newDay = Integer.valueOf( dateData[1].trim() );
+			int newYear = Integer.valueOf( dateData[2].trim() );
+			
+			this.setMonth( Integer.valueOf( newMonth ) );
+			this.setDay( Integer.valueOf( newDay ) );
+			this.setYear( Integer.valueOf( newYear ) );
+		}
 	}
 	
 	/**
@@ -178,12 +196,28 @@ public class Date {
 		this.toString = newString;
 	}
 	
+	/**
+	 * Getter method for the Date's string.
+	 * @return the string
+	 */
+	public String getDateString() {
+		return this.dateOnlyString;
+	}
+
+	/**
+	 * Setter method for the Date's string.
+	 * @param newString the string to set
+	 */
+	public void setDateString(String newString) {
+		this.dateOnlyString = newString;
+	}
+	
 
 	/**
 	 * @param otherDate The date to compare this one to.
 	 * @return -1 if this date comes first, 0 if they're the same, 1 if the other is first.
 	 */
-	public int compareDate(Date otherDate) {
+	public int compareDateTime(Date otherDate) {
 		
 		if( otherDate.getYear() < this.getYear() ) {
 			
@@ -249,6 +283,50 @@ public class Date {
 							}
 						}
 					}
+				}
+			}
+		}
+		
+		return 0;
+	}
+	
+	/**
+	 * @param otherDate The date to compare this one to.
+	 * @return -1 if this date comes first, 0 if they're the same, 1 if the other is first.
+	 */
+	public int compareDate(Date otherDate) {
+		
+		if( otherDate.getYear() < this.getYear() ) {
+			
+			return 1;
+		}
+		else if( this.getYear() < otherDate.getYear() ) {
+		
+			return -1;
+		}
+		else if( this.getYear() == otherDate.getYear() ) {
+			
+			if( otherDate.getMonth() < this.getMonth() ) {
+				
+				return 1;
+			}
+			else if( this.getMonth() < otherDate.getMonth() ) {
+			
+				return -1;
+			}
+			else if( this.getMonth() == otherDate.getMonth() ) {
+				
+				if( otherDate.getDay() < this.getDay() ) {
+					
+					return 1;
+				}
+				else if( this.getDay() < otherDate.getDay() ) {
+				
+					return -1;
+				}
+				else if( this.getDay() == otherDate.getDay() ) {
+					
+					return 0;
 				}
 			}
 		}

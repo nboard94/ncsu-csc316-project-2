@@ -1,5 +1,6 @@
 package edu.ncsu.csc316.security_manager.tree;
 
+import edu.ncsu.csc316.security_manager.date.Date;
 import edu.ncsu.csc316.security_manager.list.ArrayBasedList;
 import edu.ncsu.csc316.security_manager.log.LogEntry;
 
@@ -12,7 +13,8 @@ public class BinarySearchTreeLogs {
 	private LogEntry data;
 	private BinarySearchTreeLogs leftSubTree;
 	private BinarySearchTreeLogs rightSubTree;
-	ArrayBasedList<LogEntry> logsInDate = new ArrayBasedList<LogEntry>();
+	private static ArrayBasedList<LogEntry> logsByDate = new ArrayBasedList<LogEntry>();
+	boolean used = false;
 	
 	/**
 	 * Constructor for a BST with LogEntries.
@@ -26,34 +28,89 @@ public class BinarySearchTreeLogs {
 	}
 	
 	/**
+	 * Constructor for a BST.
+	 * @param newData The initial LogEntry.
+	 */
+	public BinarySearchTreeLogs() {
+		
+		this.data = null;
+		this.leftSubTree = null;
+		this.rightSubTree = null;
+	}
+	
+	/**
 	 * Adds a LogEntry node to the BST.
 	 * @param newData the new LogEntry to be added.
 	 */
 	public void addNode(LogEntry newData) {
 		
-		if ( this.data.getTimeStamp().compareDate( newData.getTimeStamp() ) == 1 ) {
-		
-			if ( this.leftSubTree != null) {
+		if ( newData.getTimeStamp().getDateString().length() > 10 ) {
+			
+			if ( this.data == null ) {
 				
-				this.leftSubTree.addNode( newData );
+				this.data = newData;
 			}
+			
+			else if ( newData.getTimeStamp().compareDateTime( this.data.getTimeStamp() ) == -1 ) {
+				
+				if ( this.leftSubTree == null ) {
+					
+					this.leftSubTree = new BinarySearchTreeLogs( newData );
+				}
+				
+				else {
+					
+					this.leftSubTree.addNode( newData );
+				}
+			}
+			
 			else {
 				
-				this.leftSubTree = new BinarySearchTreeLogs( newData );
+				if ( this.rightSubTree == null ) {
+					
+					this.rightSubTree = new BinarySearchTreeLogs( newData );
+				}
+				
+				else {
+					
+					this.rightSubTree.addNode( newData );
+				}
 			}
 		}
+		
 		else {
 			
-			if ( this.rightSubTree != null ) {
+			if ( this.data == null ) {
 				
-				this.rightSubTree.addNode( newData );
+				this.data = newData;
 			}
+			
+			else if ( newData.getTimeStamp().compareDate( this.data.getTimeStamp() ) == -1 ) {
+				
+				if ( this.leftSubTree == null ) {
+					
+					this.leftSubTree = new BinarySearchTreeLogs( newData );
+				}
+				
+				else {
+					
+					this.leftSubTree.addNode( newData );
+				}
+			}
+			
 			else {
 				
-				this.rightSubTree = new BinarySearchTreeLogs( newData );
+				if ( this.rightSubTree == null ) {
+					
+					this.rightSubTree = new BinarySearchTreeLogs( newData );
+				}
+				
+				else {
+					
+					this.rightSubTree.addNode( newData );
+				}
 			}
 		}
-		
 	}
 	
 
@@ -79,6 +136,45 @@ public class BinarySearchTreeLogs {
 	public LogEntry getData() {
 		
 		return data;
+	}
+	
+	private void buildByDate( String searchDate ) {
+		
+		Date toSearch = new Date( searchDate );
+		
+		if ( searchDate.length() > 10 ) {
+			
+			if ( toSearch.compareDateTime( this.data.getTimeStamp() ) == 0 && used == false) {
+				
+				logsByDate.add( this.data );
+				this.used = true;
+			}
+		}
+		else {
+			
+			if ( toSearch.compareDate( this.data.getTimeStamp() ) == 0 && used == false ) {
+				
+				logsByDate.add( this.data );
+				this.used = true;
+			}
+		}
+		
+		if ( this.leftSubTree != null ) {
+			
+			this.leftSubTree.buildByDate( searchDate );
+		}
+		
+		if ( this.rightSubTree != null ) {
+			
+			 this.rightSubTree.buildByDate( searchDate );
+		}
+		
+	}
+	
+	public ArrayBasedList<LogEntry> getByDate( String searchDate ) {
+		
+		this.buildByDate( searchDate );
+		return this.logsByDate;
 	}
 	
 	

@@ -13,7 +13,7 @@ import edu.ncsu.csc316.security_manager.tree.BinarySearchTreeLogs;
  */
 public class SecurityTreeManager {
 
-	private BinarySearchTreeLogs logTree;
+	private BinarySearchTreeLogs logTree = new BinarySearchTreeLogs();
 	
 	private ArrayBasedList<LogEntry> logData;
 	
@@ -107,7 +107,55 @@ public class SecurityTreeManager {
      */
     public String getLogEntriesForDate(String date)
     {
-      return null;
+      ArrayBasedList<LogEntry> logsByDate = logTree.getByDate(date);
+      StringBuilder sb = new StringBuilder();
+      
+      int currentYear, currentMonth, currentDay, currentHour, currentMinute, currentSecond;
+      String yearStr, monStr, dayStr, hourStr, minStr, secStr;
+      
+      for( int i = 0; i < logsByDate.size(); i++ ) {
+    	  currentYear = logsByDate.get(i).getTimeStamp().getYear();
+    	  currentMonth = logsByDate.get(i).getTimeStamp().getMonth();
+    	  currentDay = logsByDate.get(i).getTimeStamp().getDay();
+    	  currentHour = logsByDate.get(i).getTimeStamp().getHour();
+    	  currentMinute = logsByDate.get(i).getTimeStamp().getMinute();
+    	  currentSecond = logsByDate.get(i).getTimeStamp().getSecond();
+    	  
+    	  yearStr = Integer.toString(currentYear);
+    	  
+    	  if( currentMonth < 10)
+    		  monStr = "0" + Integer.toString(currentMonth);
+    	  else
+    		  monStr = Integer.toString(currentMonth);
+    	  
+    	  if( currentDay < 10 )
+    		  dayStr = "0" + Integer.toString(currentDay);
+    	  else
+    		  dayStr = Integer.toString(currentDay);
+    	  
+    	  if( currentHour < 10 )
+    		  hourStr = "0" + Integer.toString(currentHour);
+    	  else
+    		  hourStr = Integer.toString(currentHour);
+    	  
+    	  if( currentMinute < 10 )
+    		  minStr = "0" + Integer.toString(currentMinute);
+    	  else
+    		  minStr = Integer.toString(currentMinute);
+    	 
+    	  if( currentSecond < 10 )
+    		  secStr = "0" + Integer.toString(currentSecond);
+    	  else
+    		  secStr = Integer.toString(currentSecond);
+    	  
+    	  sb.append( "LogEntry[timestamp=" );
+    	  sb.append( yearStr + "/" + monStr + "/" + dayStr + " ");
+    	  sb.append( hourStr + ":" + minStr + ":" + secStr);
+    	  sb.append( ", user=" + logsByDate.get(i).getUsername());
+    	  sb.append( ", description=" + logsByDate.get(i).getAction() + "]\n" );
+    	  
+      }
+    
+      return sb.toString().trim();
     }
-	
 }

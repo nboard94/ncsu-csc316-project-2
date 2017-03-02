@@ -2,6 +2,7 @@ package edu.ncsu.csc316.security_manager.ui;
 
 import java.util.Scanner;
 
+import edu.ncsu.csc316.security_manager.date.Date;
 import edu.ncsu.csc316.security_manager.manager.SecurityTreeManager;
 
 /**
@@ -18,6 +19,7 @@ public class SecurityTreeManagerUI {
 	private String attackFilePost = "input/ddos-postorder.txt";
 	private static String logfile = "input/sample-log.txt";
 	private String command = "";
+	private static String dateInput;
 	
 	/**
 	 * Constructs a SecurityTreeManagerUI object.
@@ -39,7 +41,7 @@ public class SecurityTreeManagerUI {
 		while(!commandLine.command.equals("exit")) {
 			System.out.println("Enter 'a' to build an attack tree.\n"
 								+ "Enter 'l' to filter log files by date.\n"
-								+ "Enter 'exit' to quit the program.");
+								+ "Enter \"exit\" to quit the program.");
 			
 			commandLine.command = commandScan.nextLine();
 			
@@ -50,15 +52,39 @@ public class SecurityTreeManagerUI {
 				
 				//TODO uncomment these later
 				System.out.println("Enter pre-order traversal file: ");
-				//commandLine.attackFilePre = commandScan.nextLine();
+				commandLine.attackFilePre = commandScan.nextLine();
 				System.out.println("Enter post-order traversal file: ");
-				//commandLine.attackFilePost = commandScan.nextLine();
+				commandLine.attackFilePost = commandScan.nextLine();
 				
-				if(commandLine.attackFilePost == null || commandLine.attackFilePre == null) {
+				if(commandLine.attackFilePost == null || commandLine.attackFilePre == null
+					|| commandLine.attackFilePost.equals("") || commandLine.attackFilePre.equals("")) {
 					System.out.println("Please enter a valid filepath.");
 				}
 				else {
-					//TODO function will call manager to create a tree
+					System.out.println( "Enter 's' to view the summary information.\n"
+										+ "Enter 'g' to view the goal information.\n"
+										+ "Enter 't' to view level-order traversal of the tree.\n"
+										+ "Enter \"exit\" to quit the program.\n");
+					commandLine.command = commandScan.nextLine();
+					
+					if(commandLine.command.equals("s") ) {
+						
+						//TODO invoke manager to show summary information
+					}
+					else if(commandLine.command.equals("g")) {
+						
+						//TODO invoke manager to show attack goal
+					}
+					else if(commandLine.command.equals("t")) {
+						
+						//TODO invoke manager to show attack level order traversal
+					}
+					else if(commandLine.command.equals("exit")) {
+						System.exit(0);
+					}
+					else {
+						System.out.println("Invalid command.\n");
+					}
 				}
 			}
 			else if(commandLine.command.equals("l")) {
@@ -66,12 +92,45 @@ public class SecurityTreeManagerUI {
 				System.out.println("Enter unsorted log file: ");
 				//commandLine.logfile = commandScan.nextLine();
 				
-				if(commandLine.logfile == null) {
+				logManager = new SecurityTreeManager( logfile );
+				System.out.println("test\n");
+				System.out.print(logManager.getLogEntriesForDate( "10-6-2014" ));
+				
+				if(commandLine.logfile == null || commandLine.logfile.equals("")) {
 					System.out.println("Please enter a valid filepath.");
 				}
 				else {
-					logManager = new SecurityTreeManager( logfile );
-					System.out.println( logManager.getLogEntriesForDate( "10-6-2014" ));
+					System.out.println( "Enter 'd' to view log files associated with a date.\n"
+										+ "Enter 't' to view level-order traversal of the tree.\n"
+										+ "Enter \"exit\" to quit the program.\n");
+					commandLine.command = commandScan.nextLine();
+					
+					if(commandLine.command.equals("d")) {
+						
+						System.out.println( "Enter a date in the following format: MM-DD-YYYY\n");
+						commandLine.dateInput = commandScan.nextLine();
+						
+						try {
+							Date testDate = new Date( dateInput );
+						} catch (RuntimeException e) {
+							
+							System.out.println( "Invalid input.\n");
+						}
+						
+						//TODO invoke manager to print logs
+					}
+					else if(commandLine.command.equals("t")){
+						
+						
+						//TODO invoke manager for level order traversal
+					}
+					else if(commandLine.command.equals("exit")) {
+						System.exit(0);
+					}
+					else {
+						System.out.println("Invalid command.\n");
+					}
+
 				}
 			}
 			else {
