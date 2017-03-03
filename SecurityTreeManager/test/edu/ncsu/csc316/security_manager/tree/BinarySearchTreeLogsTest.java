@@ -77,24 +77,13 @@ public class BinarySearchTreeLogsTest {
 		
 		LogEntry head = new LogEntry("11-29-1994 14:42:00", "user", "desc");
 		
-		LogEntry left = new LogEntry("11-29-1990", "user", "desc");
-		LogEntry leftLeft = new LogEntry("11-29-1980", "user", "desc");
-		LogEntry leftRight = new LogEntry("11-29-1992", "user", "desc");
-		
-		LogEntry right = new LogEntry("11-29-2000", "user", "desc");
-		LogEntry rightLeft = new LogEntry("11-29-1997", "user", "desc");
-		LogEntry rightRight = new LogEntry("11-29-2017", "user", "desc");
-		
 		BinarySearchTreeLogs tree = new BinarySearchTreeLogs( );
 		
 		tree.addNode(head);
-		tree.addNode(left);
-		tree.addNode(leftLeft);
-		tree.addNode(leftRight);
-		tree.addNode(right);
-		tree.addNode(rightLeft);
-		tree.addNode(rightRight);
 		
-		ArrayBasedList<LogEntry> testList = tree.getByDate("11-29-2000");
+		ArrayBasedList<LogEntry> testList = null;
+		
+		
+		assertNull(testList);
 		}
 }
