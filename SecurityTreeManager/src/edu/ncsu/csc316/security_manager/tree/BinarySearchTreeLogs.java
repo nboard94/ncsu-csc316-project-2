@@ -151,7 +151,12 @@ public class BinarySearchTreeLogs {
 		
 		if ( searchDate.length() > 10 ) {
 			
-			if ( toSearch.compareDateTime( this.data.getTimeStamp() ) == 0) {
+			if ( toSearch.getYear() == this.data.getTimeStamp().getYear() &&
+					toSearch.getMonth() == this.data.getTimeStamp().getMonth() && 
+					toSearch.getDay() == this.data.getTimeStamp().getDay() &&
+					toSearch.getHour() == this.data.getTimeStamp().getHour() &&
+					toSearch.getMinute() == this.data.getTimeStamp().getMinute() &&
+					toSearch.getSecond() == this.data.getTimeStamp().getSecond() ) {
 				
 				logsByDate.add( this.data );
 				this.used = true;
@@ -159,7 +164,9 @@ public class BinarySearchTreeLogs {
 		}
 		else {
 			
-			if ( toSearch.compareDate( this.data.getTimeStamp() ) == 0) {
+			if ( toSearch.getYear() == this.data.getTimeStamp().getYear() &&
+					toSearch.getMonth() == this.data.getTimeStamp().getMonth() && 
+					toSearch.getDay() == this.data.getTimeStamp().getDay()) {
 				
 				logsByDate.add( this.data );
 				this.used = true;
