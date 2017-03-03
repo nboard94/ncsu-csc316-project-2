@@ -1,6 +1,5 @@
 package edu.ncsu.csc316.security_manager.manager;
 
-import edu.ncsu.csc316.security_manager.attack.AttackStep;
 import edu.ncsu.csc316.security_manager.io.LogFileReader;
 import edu.ncsu.csc316.security_manager.list.ArrayBasedList;
 import edu.ncsu.csc316.security_manager.log.LogEntry;
