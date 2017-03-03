@@ -94,7 +94,7 @@ public class SecurityTreeManagerUI {
 			else if(commandLine.command.equals("l")) {
 				
 				System.out.println("Enter unsorted log file: ");
-				//commandLine.logfile = commandScan.nextLine();
+				commandLine.logfile = commandScan.nextLine();
 				
 				logManager = new SecurityTreeManager( logfile );
 				

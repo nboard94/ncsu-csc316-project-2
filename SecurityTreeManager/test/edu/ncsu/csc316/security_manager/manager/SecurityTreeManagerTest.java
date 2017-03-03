@@ -24,6 +24,7 @@ public class SecurityTreeManagerTest {
 		
 		//String expectedEntry = "LogEntry[timestamp=2015/09/13 02:58:49, user=user2, description=save patient list]"; 
 		String logForDate = logMan.getLogEntriesForDate("09-13-2015");
+		logForDate = attackMan.getLogEntriesForDate("09-13-2015");
 		
 		assertTrue(0 < logForDate.length());
 		

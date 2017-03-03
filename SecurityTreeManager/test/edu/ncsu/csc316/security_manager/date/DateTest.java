@@ -146,6 +146,9 @@ public class DateTest {
 		assertEquals("01-02-1894", bd.getDateString());
 	}
 	
+	/**
+	 * Tests an enum in a different package for coverage purposes.
+	 */
 	@Test
 	public void testForeignEnum() {
 		

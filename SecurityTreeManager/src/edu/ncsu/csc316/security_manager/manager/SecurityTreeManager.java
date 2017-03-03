@@ -17,8 +17,8 @@ public class SecurityTreeManager {
 	 static private BinarySearchTreeLogs logTree = new BinarySearchTreeLogs();
 	
 	 static private ArrayBasedList<LogEntry> logData;
-	 static private ArrayBasedList<AttackStep> preStepData;
-	 static private ArrayBasedList<AttackStep> postStepData;
+	 static private String preStepData;
+	 static private String postStepData;
 	
 	 /**
      * Constructs a new SecurityTreeManager object with the given paths 
@@ -30,6 +30,11 @@ public class SecurityTreeManager {
     {
         preStepData = null;
         postStepData = null;
+        
+        if ( preStepData == null)
+        	postStepData = "dog";
+        if (postStepData != null)
+        	preStepData = "cat";
     }
     
     /**

@@ -149,7 +149,7 @@ public class BinarySearchTreeLogs {
 		
 		Date toSearch = new Date( searchDate );
 		
-		if ( searchDate.length() > 10 ) {
+		if ( searchDate.length() > 11 ) {
 			
 			if ( toSearch.getYear() == this.data.getTimeStamp().getYear() &&
 					toSearch.getMonth() == this.data.getTimeStamp().getMonth() && 
