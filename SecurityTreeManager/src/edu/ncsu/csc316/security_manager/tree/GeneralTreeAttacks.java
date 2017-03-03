@@ -27,28 +27,4 @@ public class GeneralTreeAttacks {
 			data = newData;
 		}
 	}
-	
-	Node head;
-	int nothing;
-	
-	/**
-	 * Constructs a GeneralTree without initializing a head.
-	 */
-	public GeneralTreeAttacks() {
-		Node head = null;
-		
-		if (head == null )
-			nothing++;
-	}
-	
-	/**
-	 * Constructs a GeneralTree and sets the head.
-	 * @param headData data for the head node.
-	 */
-	public GeneralTreeAttacks( AttackStep headData ) {
-		
-		head = new Node( headData );
-	}
-	
-	
 }
