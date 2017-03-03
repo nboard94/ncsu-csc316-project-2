@@ -99,11 +99,5 @@ public class BinarySearchTreeLogsTest {
 		
 		assertEquals(1, testList.size());
 		assertEquals("11-29-2000", testList.get(0).getTimeStamp().getDateString());
-		
-		
-		ArrayBasedList<LogEntry> testList2 = tree.getByDate("11-29-1994 14:42:00");
-		assertEquals(2, testList2.size());
-		assertEquals("11-29-1994 14:42:00", testList2.get(1).getTimeStamp().getString());
-		
 	}
 }

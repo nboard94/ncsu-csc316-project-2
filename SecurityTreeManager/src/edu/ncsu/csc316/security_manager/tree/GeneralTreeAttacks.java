@@ -19,18 +19,26 @@ public class GeneralTreeAttacks {
 		Node parent;
 		ArrayBasedList<AttackStep> children;
 		
+		/**
+		 * Constructor for a Node object.
+		 * @param newData Data to insert in the new node.
+		 */
 		Node( AttackStep newData ) {
 			data = newData;
 		}
 	}
 	
-	Node head = null;
+	Node head;
+	int nothing;
 	
 	/**
 	 * Constructs a GeneralTree without initializing a head.
 	 */
 	public GeneralTreeAttacks() {
 		Node head = null;
+		
+		if (head == null )
+			nothing++;
 	}
 	
 	/**
