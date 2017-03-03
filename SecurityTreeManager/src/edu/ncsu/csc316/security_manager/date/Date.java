@@ -36,7 +36,7 @@ public class Date {
 			String dateString = dateTimeString.substring(0, dateTimeString.indexOf(' '));
 			String timeString = dateTimeString.substring(dateTimeString.indexOf(' ') + 1);
 			
-			dateOnlyString = dateString;
+			this.setDateString(dateString);
 			
 			String[] dateData = dateString.split("-");
 			String[] timeData = timeString.split(":");

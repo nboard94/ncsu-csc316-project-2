@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import edu.ncsu.csc316.security_manager.attack.AttackStep;
+import edu.ncsu.csc316.security_manager.attack.AttackType;
+
 /**
  * Tests the functionality of the Date class.
  * @author Nicholas Board (ndboard)
@@ -131,5 +134,22 @@ public class DateTest {
 		od = new Date("01-02-1894 14:42:02");
 		assertEquals(0, td.compareDate(od));
 
+	}
+	
+	/**
+	 * Tests the string info methods in Date.
+	 */
+	@Test
+	public void testStrings() {
+		
+		Date bd = new Date("01-02-1894 14:42:02");
+		
+		assertEquals("01-02-1894", bd.getDateString());
+	}
+	
+	@Test
+	public void testForeignEnum() {
+		
+		assertEquals(AttackType.valueOf("ATTACKGOAL"), AttackType.ATTACKGOAL);
 	}
 }
