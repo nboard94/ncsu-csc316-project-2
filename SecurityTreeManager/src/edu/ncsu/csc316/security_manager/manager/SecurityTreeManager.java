@@ -1,5 +1,6 @@
 package edu.ncsu.csc316.security_manager.manager;
 
+import edu.ncsu.csc316.security_manager.attack.AttackStep;
 import edu.ncsu.csc316.security_manager.io.LogFileReader;
 import edu.ncsu.csc316.security_manager.list.ArrayBasedList;
 import edu.ncsu.csc316.security_manager.log.LogEntry;
@@ -16,6 +17,8 @@ public class SecurityTreeManager {
 	 static private BinarySearchTreeLogs logTree = new BinarySearchTreeLogs();
 	
 	 static private ArrayBasedList<LogEntry> logData;
+	 static private ArrayBasedList<AttackStep> preStepData;
+	 static private ArrayBasedList<AttackStep> postStepData;
 	
 	 /**
      * Constructs a new SecurityTreeManager object with the given paths 
@@ -25,7 +28,8 @@ public class SecurityTreeManager {
      */
     public SecurityTreeManager(String preOrder, String postOrder)
     {
-        //TODO your code here
+        preStepData = null;
+        postStepData = null;
     }
     
     /**
