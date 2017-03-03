@@ -44,7 +44,7 @@ public class BinarySearchTreeLogs {
 	 */
 	public void addNode(LogEntry newData) {
 		
-		if ( newData.getTimeStamp().getDateString().length() > 10 ) {
+		if ( newData.getTimeStamp().getString().length() > 10 ) {
 			
 			if ( this.data == null ) {
 				
@@ -174,7 +174,7 @@ public class BinarySearchTreeLogs {
 	public ArrayBasedList<LogEntry> getByDate( String searchDate ) {
 		
 		this.buildByDate( searchDate );
-		return this.logsByDate;
+		return BinarySearchTreeLogs.logsByDate;
 	}
 	
 	

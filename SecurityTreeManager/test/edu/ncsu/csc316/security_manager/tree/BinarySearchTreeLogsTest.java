@@ -62,7 +62,7 @@ public class BinarySearchTreeLogsTest {
 	@Test
 	public void testGetByDate() {
 		
-		LogEntry head = new LogEntry("11-29-1994", "user", "desc");
+		LogEntry head = new LogEntry("11-29-1994 14:42:00", "user", "desc");
 		
 		LogEntry left = new LogEntry("11-29-1990", "user", "desc");
 		LogEntry leftLeft = new LogEntry("11-29-1980", "user", "desc");
@@ -86,5 +86,11 @@ public class BinarySearchTreeLogsTest {
 		
 		assertEquals(1, testList.size());
 		assertEquals("11-29-2000", testList.get(0).getTimeStamp().getDateString());
+		
+		
+		ArrayBasedList<LogEntry> testList2 = tree.getByDate("11-29-1994 14:42:00");
+		assertEquals(2, testList2.size());
+		assertEquals("11-29-1994 14:42:00", testList2.get(1).getTimeStamp().getString());
+		
 	}
 }

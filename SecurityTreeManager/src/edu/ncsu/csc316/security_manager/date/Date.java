@@ -73,6 +73,7 @@ public class Date {
 			String[] dateData = dateTimeString.split("-");
 			
 			dateOnlyString = dateTimeString;
+			toString = "D.N.A.";
 			
 			int newMonth = Integer.valueOf( dateData[0].trim() );
 			int newDay = Integer.valueOf( dateData[1].trim() );

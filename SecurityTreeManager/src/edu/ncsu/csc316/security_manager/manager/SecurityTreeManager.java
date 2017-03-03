@@ -13,9 +13,9 @@ import edu.ncsu.csc316.security_manager.tree.BinarySearchTreeLogs;
  */
 public class SecurityTreeManager {
 
-	private BinarySearchTreeLogs logTree = new BinarySearchTreeLogs();
+	 static private BinarySearchTreeLogs logTree = new BinarySearchTreeLogs();
 	
-	private ArrayBasedList<LogEntry> logData;
+	 static private ArrayBasedList<LogEntry> logData;
 	
 	 /**
      * Constructs a new SecurityTreeManager object with the given paths 

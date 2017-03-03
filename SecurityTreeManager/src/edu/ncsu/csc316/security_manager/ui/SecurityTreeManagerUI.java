@@ -93,10 +93,8 @@ public class SecurityTreeManagerUI {
 				//commandLine.logfile = commandScan.nextLine();
 				
 				logManager = new SecurityTreeManager( logfile );
-				System.out.println("test\n");
-				System.out.print(logManager.getLogEntriesForDate( "10-6-2014" ));
 				
-				if(commandLine.logfile == null || commandLine.logfile.equals("")) {
+				if(SecurityTreeManagerUI.logfile == null || SecurityTreeManagerUI.logfile.equals("")) {
 					System.out.println("Please enter a valid filepath.");
 				}
 				else {
@@ -108,10 +106,14 @@ public class SecurityTreeManagerUI {
 					if(commandLine.command.equals("d")) {
 						
 						System.out.println( "Enter a date in the following format: MM-DD-YYYY\n");
-						commandLine.dateInput = commandScan.nextLine();
+						SecurityTreeManagerUI.dateInput = commandScan.nextLine();
 						
 						try {
+							@SuppressWarnings("unused")
 							Date testDate = new Date( dateInput );
+							
+							System.out.print(logManager.getLogEntriesForDate( dateInput ) + "\n");
+							
 						} catch (RuntimeException e) {
 							
 							System.out.println( "Invalid input.\n");
@@ -188,6 +190,6 @@ public class SecurityTreeManagerUI {
 	 * @param logfile the logfile to set
 	 */
 	public void setLogfile(String logfile) {
-		this.logfile = logfile;
+		SecurityTreeManagerUI.logfile = logfile;
 	}
 }
