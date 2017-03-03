@@ -159,6 +159,10 @@ public class SecurityTreeManager {
       return sb.toString().trim();
     }
     
+    /**
+     * Returns the logData.
+     * @return logData The data on logs.
+     */
     public ArrayBasedList<LogEntry> getLogData() {
     	
     	return this.logData;

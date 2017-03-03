@@ -29,7 +29,6 @@ public class BinarySearchTreeLogs {
 	
 	/**
 	 * Constructor for a BST.
-	 * @param newData The initial LogEntry.
 	 */
 	public BinarySearchTreeLogs() {
 		
@@ -133,18 +132,26 @@ public class BinarySearchTreeLogs {
 		return this.rightSubTree;
 	}
 	
+	/**
+	 * Gets the data associated with this node.
+	 * @return data The data associated with this node in the tree.
+	 */
 	public LogEntry getData() {
 		
 		return data;
 	}
 	
+	/**
+	 * Traverses the array and adds nodes with corresponding dates.
+	 * @param searchDate The date to compare to.
+	 */
 	private void buildByDate( String searchDate ) {
 		
 		Date toSearch = new Date( searchDate );
 		
 		if ( searchDate.length() > 10 ) {
 			
-			if ( toSearch.compareDateTime( this.data.getTimeStamp() ) == 0 && used == false) {
+			if ( toSearch.compareDateTime( this.data.getTimeStamp() ) == 0) {
 				
 				logsByDate.add( this.data );
 				this.used = true;
@@ -152,7 +159,7 @@ public class BinarySearchTreeLogs {
 		}
 		else {
 			
-			if ( toSearch.compareDate( this.data.getTimeStamp() ) == 0 && used == false ) {
+			if ( toSearch.compareDate( this.data.getTimeStamp() ) == 0) {
 				
 				logsByDate.add( this.data );
 				this.used = true;
@@ -171,6 +178,11 @@ public class BinarySearchTreeLogs {
 		
 	}
 	
+	/**
+	 * Returns an array containing logs corresponding to a specific date.
+	 * @param searchDate The date to search for logs with.
+	 * @return logsByDate Contains logs corresponding to a specific date.
+	 */
 	public ArrayBasedList<LogEntry> getByDate( String searchDate ) {
 		
 		this.buildByDate( searchDate );

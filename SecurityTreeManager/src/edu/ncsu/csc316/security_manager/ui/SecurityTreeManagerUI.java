@@ -20,6 +20,7 @@ public class SecurityTreeManagerUI {
 	private static String logfile = "input/sample-log.txt";
 	private String command = "";
 	private static String dateInput;
+	static int placeHolder;
 	
 	/**
 	 * Constructs a SecurityTreeManagerUI object.
@@ -70,14 +71,17 @@ public class SecurityTreeManagerUI {
 					if(commandLine.command.equals("s") ) {
 						
 						//TODO invoke manager to show summary information
+						placeHolder++;
 					}
 					else if(commandLine.command.equals("g")) {
 						
 						//TODO invoke manager to show attack goal
+						placeHolder++;
 					}
 					else if(commandLine.command.equals("t")) {
 						
 						//TODO invoke manager to show attack level order traversal
+						placeHolder++;
 					}
 					else if(commandLine.command.equals("exit")) {
 						System.exit(0);
@@ -125,6 +129,7 @@ public class SecurityTreeManagerUI {
 						
 						
 						//TODO invoke manager for level order traversal
+						placeHolder++;
 					}
 					else if(commandLine.command.equals("exit")) {
 						System.exit(0);

@@ -215,6 +215,7 @@ public class Date {
 	
 
 	/**
+	 * Compares Dates using Date and Time.
 	 * @param otherDate The date to compare this one to.
 	 * @return -1 if this date comes first, 0 if they're the same, 1 if the other is first.
 	 */
@@ -292,6 +293,7 @@ public class Date {
 	}
 	
 	/**
+	 * Compares dates using only the date and not the time.
 	 * @param otherDate The date to compare this one to.
 	 * @return -1 if this date comes first, 0 if they're the same, 1 if the other is first.
 	 */

@@ -7,9 +7,16 @@ import org.junit.Test;
 import edu.ncsu.csc316.security_manager.list.ArrayBasedList;
 import edu.ncsu.csc316.security_manager.log.LogEntry;
 
+/**
+ * Tests the functionality of the Binary Search Tree.
+ * @author Nicholas Board (ndboard)
+ */
 public class BinarySearchTreeLogsTest {
 
 	
+	/**
+	 * Tests the BST constructor.
+	 */
 	@Test
 	public void testConstructor() {
 		
@@ -25,6 +32,9 @@ public class BinarySearchTreeLogsTest {
 		assertNull(withHead.getRightTree());
 	}
 	
+	/**
+	 * Tests the BST's adding method.
+	 */
 	@Test
 	public void testAdding() {
 		
@@ -59,6 +69,9 @@ public class BinarySearchTreeLogsTest {
 		assertEquals(rightRight.getTimeStamp().getYear(), tree.getRightTree().getRightTree().getData().getTimeStamp().getYear());
 	}
 	
+	/**
+	 * Tests the BST's getByDate method.
+	 */
 	@Test
 	public void testGetByDate() {
 		
